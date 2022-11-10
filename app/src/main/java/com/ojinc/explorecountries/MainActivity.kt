@@ -3,8 +3,12 @@ package com.ojinc.explorecountries
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Log.d
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ojinc.explorecountries.data.CountryData
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,9 +18,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://restcountries.com/v3.1/"
 class MainActivity : AppCompatActivity() {
+
+    lateinit var countryAdapter: CountryAdapter
+    lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        recyclerView  = findViewById(R.id.countries_recycler_view)
+        recyclerView.setHasFixedSize(true)
+        linearLayoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = linearLayoutManager
+
+
+
 
         getMyData()
         val btn: Button = findViewById(R.id.btn)
@@ -37,18 +53,15 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<CountryData?>, response: Response<CountryData?>) {
                 val responseBody = response.body()!!
 //                Log.e("data", responseBody.toString())
-                val myStringBuilder = StringBuilder()
+                countryAdapter = CountryAdapter(baseContext, responseBody)
+                countryAdapter.notifyDataSetChanged()
+                recyclerView.adapter = countryAdapter
 
-                for (myData in responseBody){
-                    myStringBuilder.append(myData.name.common + "\t"+ myData.capital + "\n")
-                    Log.e("data", myStringBuilder.toString())
-                }
-                val txtId: TextView = findViewById(R.id.txtV)
-                txtId.text = myStringBuilder
+
             }
 
             override fun onFailure(call: Call<CountryData?>, t: Throwable) {
-                Log.d("MainActivity","onFailure: "+t.message)
+                d("MainActivity","onFailure: "+t.message)
             }
         })
 

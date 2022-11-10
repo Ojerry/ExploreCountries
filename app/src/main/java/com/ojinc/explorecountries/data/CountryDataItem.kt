@@ -9,6 +9,7 @@ data class CountryDataItem(
     val altSpellings: List<String>,
 //    val area: Double,
 ////    val borders: List<String>,
+    @SerializedName("capital")
     val capital: List<String>,
 //    val capitalInfo: CapitalInfo,
 ////    val car: Car,
