@@ -24,8 +24,6 @@ class CountryAdapter(val context: Context, val countryList: ArrayList<CountryDat
         mListener = listener
     }
 
-
-
     class ViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView) {
         var countryName : TextView
         var countryCapital : TextView
@@ -49,7 +47,7 @@ class CountryAdapter(val context: Context, val countryList: ArrayList<CountryDat
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var currentItem = countryList[position]
         holder.countryName.text = countryList[position].name.common
-        holder.countryCapital.text = countryList[position].capital?.toString()
+        holder.countryCapital.text = countryList[position].capital?.get(0).toString()
 //        holder.countryFlag.setImageResource(currentItem.flags)
         var countryFlag = holder.countryFlag
         Picasso.get()

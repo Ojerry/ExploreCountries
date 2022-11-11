@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider"
+        android:layout_width="match_parent"
+        android:layout_height="183dp"
+        android:layout_margin="12sp"
+        app:iss_corner_radius="12"
+        app:iss_auto_cycle="false"
+        app:iss_delay="1"
+        app:iss_period="1000"
+        app:iss_placeholder="@drawable/ic_launcher_foreground"
+        app:iss_error_image="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detailTv"
+        android:layout_width="238dp"
+        android:layout_height="211dp"
+        android:layout_marginBottom="180dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

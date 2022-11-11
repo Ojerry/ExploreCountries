@@ -36,10 +36,10 @@ class MainActivity : AppCompatActivity() {
 
 
         getMyData()
-        val btn: Button = findViewById(R.id.btn)
-        btn.setOnClickListener(){
-            getMyData()
-        }
+//        val btn: Button = findViewById(R.id.btn)
+//        btn.setOnClickListener(){
+//            getMyData()
+//        }
     }
 
     private fun getMyData() {
@@ -60,8 +60,15 @@ class MainActivity : AppCompatActivity() {
 
                 countryAdapter.setOnItemClickListener(object : CountryAdapter.onItemClickListener{
                     override fun onItemClick(position: Int) {
+//                        val myStringBuilder = StringBuilder()
+//                        myStringBuilder.append(responseBody[position].name.common)
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
 
+                        intent.putExtra("name", responseBody[position].name.common)
+                        intent.putExtra("population", responseBody[position].population.toString())
+                        intent.putExtra("flag", responseBody[position].flags.png)
+                        intent.putExtra("coatOfArms", responseBody[position].coatOfArms.png)
+//                        intent.putExtra("currencies", responseBody[position].currencies)
                         startActivity(intent)
                     }
 

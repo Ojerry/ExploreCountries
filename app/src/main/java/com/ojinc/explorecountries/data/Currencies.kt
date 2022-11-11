@@ -1,5 +1,8 @@
 package com.ojinc.explorecountries.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Currencies(
     val AED: AED,
     val AFN: AFN,
@@ -164,4 +167,6 @@ data class Currencies(
     val ZAR: ZAR,
     val ZMW: ZMW,
     val ZWL: ZWL
-)
+) {
+
+}

@@ -17,9 +17,11 @@ data class CountryDataItem(
 ////    val cca3: String,
 ////    val ccn3: String,
 ////    val cioc: String,
-//    val coatOfArms: CoatOfArms,
+    @SerializedName("coatOfArms")
+    val coatOfArms: CoatOfArms,
 //    val continents: List<String>,
-////    val currencies: Currencies,
+    @SerializedName("currencies")
+    val currencies: Currencies,
 ////    val demonyms: Demonyms,
 ////    val fifa: String,
 //    val flag: String,
@@ -32,7 +34,8 @@ data class CountryDataItem(
 //    val languages: Languages,
 //    val latlng: List<Any>,
 //    val maps: Maps,
-//    val population: Int,
+    @SerializedName("population")
+    val population: Int,
 //    val postalCode: PostalCode,
 //    val region: String,
 //    val startOfWeek: String,

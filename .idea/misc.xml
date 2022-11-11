@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/country_items.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/search_view_bg.xml" value="0.19895833333333332" />
       </map>
     </option>
   </component>
