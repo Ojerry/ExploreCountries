@@ -23,7 +23,8 @@ data class CountryDataItem(
 ////    val demonyms: Demonyms,
 ////    val fifa: String,
 //    val flag: String,
-//    val flags: Flags,
+    @SerializedName("flags")
+    val flags: Flags,
 ////    val gini: Gini,
 ////    val idd: Idd,
 //    val independent: Boolean,

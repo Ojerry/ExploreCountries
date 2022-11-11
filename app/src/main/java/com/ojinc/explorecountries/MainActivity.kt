@@ -1,5 +1,6 @@
 package com.ojinc.explorecountries
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -57,7 +58,14 @@ class MainActivity : AppCompatActivity() {
                 countryAdapter.notifyDataSetChanged()
                 recyclerView.adapter = countryAdapter
 
+                countryAdapter.setOnItemClickListener(object : CountryAdapter.onItemClickListener{
+                    override fun onItemClick(position: Int) {
+                        val intent = Intent(this@MainActivity, DetailActivity::class.java)
 
+                        startActivity(intent)
+                    }
+
+                })
             }
 
             override fun onFailure(call: Call<CountryData?>, t: Throwable) {
