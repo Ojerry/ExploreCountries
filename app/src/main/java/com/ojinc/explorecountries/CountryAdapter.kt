@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ojinc.explorecountries.data.CountryData
 import com.ojinc.explorecountries.data.CountryDataItem
 import com.squareup.picasso.Picasso
 
-class CountryAdapter(val context: Context, val countryList: ArrayList<CountryDataItem>): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
+class CountryAdapter(val context: Context, var countryList: ArrayList<CountryDataItem>): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
     private lateinit var mListener : onItemClickListener
 
@@ -22,6 +23,10 @@ class CountryAdapter(val context: Context, val countryList: ArrayList<CountryDat
 
     fun setOnItemClickListener(listener: onItemClickListener){
         mListener = listener
+    }
+    fun setFilteredList(filteredList: CountryData){
+        this.countryList = filteredList
+        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView) {

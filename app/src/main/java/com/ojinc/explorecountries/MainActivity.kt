@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var searchView: SearchView
     lateinit var tempCountryData: CountryData
+    lateinit var filteredList: CountryData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,7 +41,10 @@ class MainActivity : AppCompatActivity() {
         linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
 
+        filteredList = CountryData()
+
         getMyData()
+
 
         searchView = findViewById(R.id.searchView)
         searchView.clearFocus()
@@ -50,7 +54,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-//                filterList(newText)
+                if (newText != null) {
+                    filterList(newText.lowercase())
+                }
                 Log.d("pressed", "beep")
 
                 return true
@@ -69,11 +75,13 @@ class MainActivity : AppCompatActivity() {
         val retrofitData = retrofitBuilder.getData()
         retrofitData.enqueue(object : Callback<CountryData?> {
             override fun onResponse(call: Call<CountryData?>, response: Response<CountryData?>) {
-                var responseBody = response.body()!!
+//                var responseBody = response.body()!!
+                var responseBody = CountryData()
+                responseBody.addAll(response.body()!!.sortedBy { it.name.common })
+
                 tempCountryData = CountryData()
-                for(item in responseBody.sortedBy { it.name.common }){
-                    tempCountryData.add(item)
-                }
+                tempCountryData.addAll(response.body()!!.sortedBy { it.name.common })
+
                 countryAdapter = CountryAdapter(baseContext, tempCountryData)
                 countryAdapter.notifyDataSetChanged()
                 recyclerView.adapter = countryAdapter
@@ -85,21 +93,20 @@ class MainActivity : AppCompatActivity() {
 //                        val myStringBuilder = StringBuilder()
 //                        myStringBuilder.append(responseBody[position].name.common)
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
-
+                        if (filteredList.isEmpty()){
+                            filteredList = tempCountryData
+                        }
 //                        intent.putExtra("name", responseBody[position].name.common)
 //                        intent.putExtra("population", responseBody[position].population.toString())
 //                        intent.putExtra("flag", responseBody[position].flags.png)
 //                        intent.putExtra("coatOfArms", responseBody[position].coatOfArms.png)
-                        intent.putExtra("name", tempCountryData[position].name.common)
-                        intent.putExtra("population", tempCountryData[position].population.toString())
-                        intent.putExtra("flag", tempCountryData[position].flags.png)
-                        intent.putExtra("coatOfArms", tempCountryData[position].coatOfArms.png)
-//                        intent.putExtra("currencies", responseBody[position].currencies)
+                        intent.putExtra("name", filteredList[position].name.common)
+                        intent.putExtra("population", filteredList[position].population.toString())
+                        intent.putExtra("flag", filteredList[position].flags.png)
+                        intent.putExtra("coatOfArms", filteredList[position].coatOfArms.png)
                         startActivity(intent)
                     }
-
                 })
-
 
             }
 
@@ -108,6 +115,19 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+    fun filterList(newText: String){
+        filteredList = CountryData()
+        for(item in tempCountryData){
+            if (item.name.common.toLowerCase(Locale.getDefault()).contains(newText)){
+                filteredList.add(item)
+            }
+        }
+        if (filteredList.isEmpty()){
+            Toast.makeText(this, "No Data Found", Toast.LENGTH_SHORT).show()
+        } else {
+            countryAdapter.setFilteredList(filteredList)
+        }
     }
 
 
