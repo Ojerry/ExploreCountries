@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/activity_detail.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/bg_button.xml" value="0.116" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/flag_bg.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/ic_filter.xml" value="0.116" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/ic_language.xml" value="0.116" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/ic_light_mode.xml" value="0.116" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/drawable/search_view_bg.xml" value="0.116" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/country_items.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/country_items.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/search_view_bg.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/test.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/layout/testing.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/ExploreCountries/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>
