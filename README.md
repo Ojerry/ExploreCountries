@@ -10,6 +10,8 @@ https://restcountries.com/v3.1/all
 
 # Features
 Search Feature: Users can search for and country on List
+Toggle Night Mode
+View country coat of arms
 
 # Libraries
 RETROFIT: A type-safe HTTP client for making HTTP calls. I used Retrofit for this application as it is quite simple and fast compared to Volley.
