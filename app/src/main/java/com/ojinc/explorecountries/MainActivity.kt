@@ -1,16 +1,20 @@
 package com.ojinc.explorecountries
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.d
+import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
+import android.view.ViewGroup
+import android.view.Window
+import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ojinc.explorecountries.data.CountryData
@@ -32,6 +36,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var searchView: SearchView
     lateinit var tempCountryData: CountryData
     lateinit var filteredList: CountryData
+    lateinit var toggleMode: ImageView
+    var nightMode: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         filteredList = CountryData()
 
         getMyData()
-
 
         searchView = findViewById(R.id.searchView)
         searchView.clearFocus()
@@ -63,6 +68,28 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        toggleMode = findViewById(R.id.toggleNightMode)
+        toggleMode.setOnClickListener {
+//            setItem()
+            if (nightMode){
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                toggleMode.setImageResource(R.drawable.ic_light_mode)
+               nightMode = false
+            }else{
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                toggleMode.setImageResource(R.drawable.ic_night_mode)
+                nightMode = true
+            }
+        }
+        val filterButton : LinearLayout = findViewById(R.id.filterButton_linearLayout)
+        filterButton.setOnClickListener(View.OnClickListener { v ->
+            showFilterDialog()
+        })
+        val langButton : LinearLayout = findViewById(R.id.languageButton_linearLayout)
+        langButton.setOnClickListener(View.OnClickListener { v ->
+            showSheetDialog()
+        })
+
     }
 
     private fun getMyData() {
@@ -99,8 +126,18 @@ class MainActivity : AppCompatActivity() {
 //                        intent.putExtra("name", responseBody[position].name.common)
 //                        intent.putExtra("population", responseBody[position].population.toString())
 //                        intent.putExtra("flag", responseBody[position].flags.png)
-//                        intent.putExtra("coatOfArms", responseBody[position].coatOfArms.png)
+                        intent.putExtra("area", filteredList[position].area.toInt().toString())
+                        intent.putExtra("region", filteredList[position].region)
+                        intent.putExtra("unMember", filteredList[position].unMember.toString())
+                        intent.putExtra("subRegion", filteredList[position].subregion)
+                        intent.putExtra("timezone", filteredList[position].timezones.get(0))
+                        intent.putExtra("independent", filteredList[position].independent.toString())
+//                        intent.putExtra("area", filteredList[position].area.toString())
+                        intent.putExtra("landlocked", filteredList[position].landlocked.toString())
                         intent.putExtra("name", filteredList[position].name.common)
+//                        intent.putExtra("currency", filteredList[position].currencies)
+                        intent.putExtra("continents", filteredList[position].continents?.get(0))
+                        intent.putExtra("capital", filteredList[position].capital?.get(0))
                         intent.putExtra("population", filteredList[position].population.toString())
                         intent.putExtra("flag", filteredList[position].flags.png)
                         intent.putExtra("coatOfArms", filteredList[position].coatOfArms.png)
@@ -129,25 +166,43 @@ class MainActivity : AppCompatActivity() {
             countryAdapter.setFilteredList(filteredList)
         }
     }
-
-
-}
-
-
-
-
-//tempArrayData.clear()
-//Log.d("check: ", tempArrayData.toString())
-//val searchText = newText!!.toLowerCase(Locale.getDefault())
-//if (searchText.isNotEmpty()){
-//    tempArrayData.forEach{
-//        if (it.name.common.toLowerCase(Locale.getDefault()).contains(searchText)){
-//            tempArrayData.add(it)
+//    fun setItem(){
+////        val toggleNightMode: ImageView = findViewById(R.id.toggleNightMode)
+////        toggleMode.setImageResource(R.drawable.ic_night_mode)
+//        if (isDayMode){
+//            toggleMode.setImageResource(R.drawable.ic_light_mode)
+//        } else{
+//            toggleMode.setImageResource(R.drawable.ic_night_mode)
 //        }
+//
 //    }
-//    recyclerView.adapter!!.notifyDataSetChanged()
-//} else{
-//    tempArrayData.clear()
-//    tempArrayData.addAll(buff)
-//    recyclerView.adapter!!.notifyDataSetChanged()
-//}
+
+    private fun showFilterDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.bottom_filter)
+
+        dialog.show()
+        dialog.window!!.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
+        dialog.window!!.setGravity(Gravity.BOTTOM)
+    }
+    private fun showSheetDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.bottom_sheet)
+
+        dialog.show()
+        dialog.window!!.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
+        dialog.window!!.setGravity(Gravity.BOTTOM)
+    }
+}

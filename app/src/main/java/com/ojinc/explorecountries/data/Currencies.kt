@@ -1,9 +1,12 @@
 package com.ojinc.explorecountries.data
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
+import java.util.*
 
 @Serializable
 data class Currencies(
+//    @SerializedName("currency")
     val AED: AED,
     val AFN: AFN,
     val ALL: ALL,
@@ -167,6 +170,4 @@ data class Currencies(
     val ZAR: ZAR,
     val ZMW: ZMW,
     val ZWL: ZWL
-) {
-
-}
+)

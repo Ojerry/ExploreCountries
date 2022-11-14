@@ -28,6 +28,7 @@
         app:layout_constraintStart_toEndOf="@id/appName_textView" />
 
     <ImageView
+        android:id="@+id/toggleNightMode"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_light_mode"
@@ -41,11 +42,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/search_view_bg"
+        android:backgroundTint="#f7f7f7"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appName_textView"
-        app:queryHint="Search Here ......" />
+        app:queryHint="Search Country"
+        android:fontFamily="@font/axiforma_regular"
+        />
 
     <LinearLayout
         android:id="@+id/languageButton_linearLayout"
@@ -66,11 +70,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="EN"
             tools:text="EN"
             android:layout_marginStart="4dp"
             android:layout_gravity="center"
             android:textColor="@color/explore_black"
-            android:fontFamily="@font/actor"/>
+            android:fontFamily="@font/axiforma_regular"/>
 
     </LinearLayout>
 
@@ -96,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="4dp"
-            android:fontFamily="@font/actor"
+            android:fontFamily="@font/axiforma_regular"
             android:text="Filter"
             android:textColor="@color/explore_black" />
 
@@ -112,6 +117,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filterButton_linearLayout"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

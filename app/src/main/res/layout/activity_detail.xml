@@ -6,20 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <TextView
+        android:id="@+id/name_value_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="name"
+        android:fontFamily="@font/axiforma_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image_slider"/>
+
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/image_slider"
         android:layout_width="match_parent"
         android:layout_height="183dp"
         android:layout_margin="12sp"
-        app:iss_corner_radius="12"
+        android:layout_marginTop="108dp"
         app:iss_auto_cycle="false"
+        app:iss_corner_radius="12"
         app:iss_delay="1"
+        app:iss_error_image="@drawable/ic_launcher_foreground"
         app:iss_period="1000"
         app:iss_placeholder="@drawable/ic_launcher_foreground"
-        app:iss_error_image="@drawable/ic_launcher_foreground"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/name_value_textView" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Capital: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +63,7 @@
                 android:id="@+id/capitalValue_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/capital_textView"
                 app:layout_constraintStart_toEndOf="@id/capital_textView"
                 app:layout_constraintTop_toTopOf="@id/capital_textView"
@@ -59,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Population: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/capitalValue_textView" />
 
@@ -67,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Population"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/population_textView"
                 app:layout_constraintStart_toEndOf="@id/population_textView"
                 app:layout_constraintTop_toTopOf="@id/population_textView" />
@@ -77,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Area: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/populationValue_textView" />
 
@@ -85,6 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Area"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/area_textView"
                 app:layout_constraintStart_toEndOf="@id/area_textView"
                 app:layout_constraintTop_toTopOf="@id/area_textView" />
@@ -95,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Continent: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/areaValue_textView" />
 
@@ -103,6 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="continent"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/continent_textView"
                 app:layout_constraintStart_toEndOf="@id/continent_textView"
                 app:layout_constraintTop_toTopOf="@id/continent_textView" />
@@ -113,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="LandLocked: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/continentValue_textView" />
 
@@ -121,6 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="landLocked"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/landLocked_textView"
                 app:layout_constraintStart_toEndOf="@id/landLocked_textView"
                 app:layout_constraintTop_toTopOf="@id/landLocked_textView" />
@@ -131,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Independence: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/landLockedValue_textView" />
 
@@ -139,6 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="independence"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/independence_textView"
                 app:layout_constraintStart_toEndOf="@id/independence_textView"
                 app:layout_constraintTop_toTopOf="@id/independence_textView" />
@@ -149,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="UN Member: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/independenceValue_textView" />
 
@@ -157,6 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="uNMember"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/uNMember_textView"
                 app:layout_constraintStart_toEndOf="@id/uNMember_textView"
                 app:layout_constraintTop_toTopOf="@id/uNMember_textView" />
@@ -167,6 +195,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Region: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/uNMemberValue_textView" />
 
@@ -175,6 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="region"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/region_textView"
                 app:layout_constraintStart_toEndOf="@id/region_textView"
                 app:layout_constraintTop_toTopOf="@id/region_textView" />
@@ -185,6 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Sub-Region: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/regionValue_textView" />
 
@@ -193,6 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="subregion"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/subregion_textView"
                 app:layout_constraintStart_toEndOf="@id/subregion_textView"
                 app:layout_constraintTop_toTopOf="@id/subregion_textView" />
@@ -203,6 +235,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Languages: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/subregionValue_textView" />
 
@@ -211,6 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="languages"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/languages_textView"
                 app:layout_constraintStart_toEndOf="@id/languages_textView"
                 app:layout_constraintTop_toTopOf="@id/languages_textView" />
@@ -221,6 +255,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Currency: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/languagesValue_textView" />
 
@@ -229,6 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="currency"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/currency_textView"
                 app:layout_constraintStart_toEndOf="@id/currency_textView"
                 app:layout_constraintTop_toTopOf="@id/currency_textView" />
@@ -239,6 +275,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Timezone: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/currencyValue_textView" />
 
@@ -247,6 +284,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="timezone"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/timezone_textView"
                 app:layout_constraintStart_toEndOf="@id/timezone_textView"
                 app:layout_constraintTop_toTopOf="@id/timezone_textView" />
@@ -257,6 +295,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Dialling Code: "
+                android:fontFamily="@font/axiforma_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/timezoneValue_textView" />
 
@@ -265,6 +304,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="diallingCode"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/diallingCode_textView"
                 app:layout_constraintStart_toEndOf="@id/diallingCode_textView"
                 app:layout_constraintTop_toTopOf="@id/diallingCode_textView" />
@@ -275,6 +315,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Driving Side: "
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/diallingCodeValue_textView" />
 
@@ -283,6 +324,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="drivingSide"
+                android:fontFamily="@font/axiforma_regular"
                 app:layout_constraintBottom_toBottomOf="@id/drivingSide_textView"
                 app:layout_constraintStart_toEndOf="@id/drivingSide_textView"
                 app:layout_constraintTop_toTopOf="@id/drivingSide_textView" />

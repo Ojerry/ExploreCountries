@@ -16,9 +16,10 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/country_flag"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@mipmap/ic_launcher"
+                android:scaleType="centerInside"
                 />
             <LinearLayout
                 android:orientation="vertical"
@@ -32,8 +33,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:text="Country Name"
+                    android:fontFamily="@font/axiforma_bold"
                     />
                 <TextView
                     android:id="@+id/country_capital_Tv"
@@ -41,8 +43,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textStyle="normal"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:text="capital"
+                    android:fontFamily="@font/axiforma_regular"
                     />
 
             </LinearLayout>

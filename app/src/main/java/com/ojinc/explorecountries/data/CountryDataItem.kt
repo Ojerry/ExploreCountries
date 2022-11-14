@@ -7,7 +7,8 @@ data class CountryDataItem(
     @SerializedName("name")
     val name: Name,
     val altSpellings: List<String>,
-//    val area: Double,
+    @SerializedName("area")
+    val area: Double,
 ////    val borders: List<String>,
     @SerializedName("capital")
     val capital: List<String>,
@@ -19,7 +20,8 @@ data class CountryDataItem(
 ////    val cioc: String,
     @SerializedName("coatOfArms")
     val coatOfArms: CoatOfArms,
-//    val continents: List<String>,
+    @SerializedName("continents")
+    val continents: List<String>,
     @SerializedName("currencies")
     val currencies: Currencies,
 ////    val demonyms: Demonyms,
@@ -29,20 +31,26 @@ data class CountryDataItem(
     val flags: Flags,
 ////    val gini: Gini,
 ////    val idd: Idd,
-//    val independent: Boolean,
-//    val landlocked: Boolean,
+    @SerializedName("independent")
+    val independent: Boolean,
+    @SerializedName("landlocked")
+    val landlocked: Boolean,
 //    val languages: Languages,
 //    val latlng: List<Any>,
 //    val maps: Maps,
     @SerializedName("population")
     val population: Int,
 //    val postalCode: PostalCode,
-//    val region: String,
+    @SerializedName("region")
+    val region: String,
 //    val startOfWeek: String,
 //    val status: String,
-//    val subregion: String,
-//    val timezones: List<String>,
+    @SerializedName("subregion")
+    val subregion: String,
+    @SerializedName("timezones")
+    val timezones: List<String>,
 //    val tld: List<String>,
 //    val translations: Translations,
-//    val unMember: Boolean
+    @SerializedName("unMember")
+    val unMember: Boolean
 )
